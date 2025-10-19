@@ -6,7 +6,7 @@ class AsteroidLauncher{
 
         this.lastLaunch = Date.now();
         this.numberPerLaunch = 1;
-        this.awaitTime = 6000; 
+        this.awaitTime = 60000; 
 
         this.projectileTargets = [];
 
