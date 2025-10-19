@@ -64,28 +64,9 @@ class Map{
     }
     drawAim(aim){
         const mapCoor = this.worldToMap(aim.x, aim.y);
-        const radius = Math.max(2, aim.radius / (world.width / this.width));
-        const arrowLength = 2;
 
         this.c.beginPath();
-        this.c.arc(mapCoor.x, mapCoor.y, radius, 0, Math.PI * 2, false);
-
-        // draw right arrow of the aim
-        this.c.moveTo(mapCoor.x + radius - arrowLength, this.y);
-        this.c.lineTo(mapCoor.x + radius + arrowLength, this.y);
-
-        // draw top arrow of the aim
-        this.c.moveTo(mapCoor.x, mapCoor.y - radius + arrowLength);
-        this.c.lineTo(mapCoor.x, mapCoor.y - radius - arrowLength);
-
-        // draw left arrow of the aim
-        this.c.moveTo(mapCoor.x - radius - arrowLength, mapCoor.y);
-        this.c.lineTo(mapCoor.x - radius + arrowLength, mapCoor.y);
-
-        // draw bottom arrow of the aim
-        this.c.moveTo(mapCoor.x, mapCoor.y + radius + arrowLength);
-        this.c.lineTo(mapCoor.x, mapCoor.y + radius - arrowLength);
-
+        this.c.arc(mapCoor.x, mapCoor.y, 2, 0, Math.PI * 2, false);
         this.c.strokeStyle = "rgb(255,255,0)";
         this.c.stroke();
     }
