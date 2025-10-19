@@ -168,11 +168,14 @@ class AsteroidLauncher{
         }
         remove(){
             const index = this.owner.asteroids.indexOf(this);
-            const mapIndex = map.aims.indexOf(this)
-            if(index !== -1 && mapIndex !== -1){
+            const mapIndex = map.objects.indexOf(this);
+            const aimIndex =  map.aims.indexOf(this.aim);
+            if(index !== -1 && mapIndex !== -1 && aimIndex !== -1){
                 this.owner.asteroids.splice(index, 1);
-                map.aims.splice(mapIndex, 1)
+                map.objects.splice(mapIndex, 1);
+                map.aims.splice(aimIndex, 1);
             } 
+        
         }
         blast(){
             for(let i = 0; i < this.numberPerBlast; i++){
